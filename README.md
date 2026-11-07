@@ -40,3 +40,5 @@ See [data/README_data.md](data/README_data.md) for the source workbook names, pe
 This began as the FIT2179 Data Visualisation 2 project. The repository name is retained so the existing published URL continues to work. The site and underlying data are presented with their original provenance; inclusion here does not grant additional rights to third-party datasets or libraries.
 
 中文：这个作品用地图、趋势和交互图表讲述澳大利亚国内航空网络，展示数据整理、Vega-Lite 编码、页面组织与可视化叙事能力。
+
+[中文项目简介（PDF）](docs/portfolio/Project-Brief-ZH.pdf)
