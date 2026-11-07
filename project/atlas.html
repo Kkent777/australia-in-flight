@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark"><title>澳大利亚主要国内航线客流</title>
+<style>
+*{box-sizing:border-box}
+:root{font-family:Inter,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#f6f8fb;background:#10273f;font-variant-numeric:tabular-nums}
+body{margin:0}
+.atlas{display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-height:400px;height:100vh;background:radial-gradient(ellipse at 46% 40%,#1e3a53 0%,#142f48 44%,#10273f 83%)}
+.heading,.readout{padding-inline:clamp(14px,4.8vw,30px)}
+.heading{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-top:18px}
+h1{font-size:15px;letter-spacing:.035em;margin:0;font-weight:650}
+time{font:500 12px/1.3 ui-monospace,monospace;color:#d5e1e8}
+.plot{position:relative;min-height:0;width:100%;overflow:hidden;display:flex;align-items:center;justify-content:center}
+svg{display:block;width:100%;height:100%}
+.grid{fill:none;stroke:#9bb4ca;stroke-width:.45;opacity:.16}
+.land{fill:#38566c;stroke:#a6bac6;stroke-width:1.15;stroke-linejoin:round}
+.water-label,.land-label{fill:#aabecb;font-size:10px;font-weight:500;letter-spacing:2px}
+.water-label{fill:#9ab1c1}
+.land-label{fill:#cad6dd;font-size:12px;letter-spacing:4px}
+.airway,.emphasis{fill:none;stroke:#9fb9ca;stroke-width:var(--width,1.25);stroke-linecap:round;stroke-linejoin:round}
+.emphasis{--width:3.4;display:none;stroke:#ffa96c;stroke-width:3.4}
+.emphasis use{stroke:inherit}
+.airport{fill:#c5d6df;stroke:#203b52;stroke-width:1.3}
+.iata{font:600 11px ui-monospace,monospace;letter-spacing:.5px;fill:#fff;stroke:#263f54;stroke-width:2.7;stroke-linejoin:round;paint-order:stroke fill}
+.readout{padding-top:8px;padding-bottom:18px;background:#10273f;border-top:1px solid #365068}
+fieldset{display:flex;align-items:center;gap:5px;padding:0;margin:0;border:0}
+legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.option{position:relative;cursor:pointer}
+.option input{position:absolute;width:1px;height:1px;opacity:0}
+.option span{display:block;padding:6px 9px;font:600 11px/1.3 ui-monospace,monospace;letter-spacing:.3px;border:1px solid #536b7e;border-radius:4px;color:#e0e9f0}
+.option input:checked+span{background:#ffb37e;border-color:#ffb37e;color:#172d40}
+.option input:focus-visible+span{outline:2px solid white;outline-offset:2px}
+.result{display:none;align-items:end;justify-content:space-between;gap:12px;margin-top:12px}
+.result-1{display:flex}
+.pair{font-size:15px;font-weight:650;align-self:center}
+dl,dd{margin:0}
+dl{display:flex;align-items:end;gap:clamp(12px,3vw,25px)}
+dt{font-size:11px;color:#bfd0de;line-height:1.6;margin-bottom:2px}
+dd{font:550 clamp(18px,4.5vw,26px)/1.02 Inter,system-ui,sans-serif;letter-spacing:-.04em}
+.line-1{display:inline}
+#path-1{stroke:var(--c1,#9fb9ca)}
+#path-2{stroke:var(--c2,#9fb9ca)}
+#path-3{stroke:var(--c3,#9fb9ca)}
+.line-1{--c1:#ffa96c}.line-2{--c2:#ffa96c}.line-3{--c3:#ffa96c}
+.atlas:has(#route-2:checked) :is(.line-1,.result-1),.atlas:has(#route-3:checked) :is(.line-1,.result-1){display:none}
+.atlas:has(#route-2:checked) .line-2,.atlas:has(#route-3:checked) .line-3{display:inline}
+.atlas:has(#route-2:checked) .result-2,.atlas:has(#route-3:checked) .result-3{display:flex}
+.atlas:has(#route-1:checked) :is(.MEL,.SYD),.atlas:has(#route-2:checked) :is(.BNE,.SYD),.atlas:has(#route-3:checked) :is(.BNE,.MEL){fill:#ffc194;stroke:#0c263e;stroke-width:1.6}
+@media(max-width:420px){.heading{padding-top:15px}.pair{font-size:13px}.readout{padding-bottom:14px}.result{gap:5px}dd{font-size:19px}.option span{padding-block:8px}.water-label{font-size:12px}.iata{font-size:12px}}
+</style>
+<main class="atlas"><header class="heading"><h1>客流前十的国内航线</h1><time datetime="2025-12">2025.12</time></header>
+<div class="plot"><svg viewBox="0 0 465 288" role="img" aria-labelledby="m-title m-desc"><title id="m-title">澳大利亚主要国内航线地图</title><desc id="m-desc">十条客流最高的航线连接七个机场，墨尔本、悉尼和布里斯班之间的三条航线排名最前。下方可切换这三条航线的统计。</desc><g class="grid"><path d="M63.7,0 V288"/><path d="M135.2,0 V288"/><path d="M206.7,0 V288"/><path d="M278.2,0 V288"/><path d="M349.7,0 V288"/><path d="M421.2,0 V288"/><path d="M492.7,0 V288"/><path d="M0,10.0 H465"/><path d="M0,89.5 H465"/><path d="M0,169.0 H465"/><path d="M0,248.5 H465"/></g>
+<path class="land" d="M333.2,254.9 L337.5,255.5 L338.0,264.9 L335.5,267.6 L334.8,274.0 L332.3,271.9 L327.3,277.4 L325.8,277.0 L321.4,276.7 L317.0,269.9 L316.1,264.7 L311.9,257.7 L312.1,254.1 L316.8,254.8 L323.7,257.5 L327.6,256.4 L333.2,254.9 Z M179.2,186.6 L171.6,190.7 L165.4,192.5 L164.0,196.7 L161.4,199.9 L155.3,200.1 L150.8,200.8 L144.5,199.4 L139.4,200.2 L134.4,200.6 L130.2,204.8 L128.1,204.5 L124.5,206.7 L121.1,209.3 L115.9,209.0 L111.1,209.0 L103.5,203.9 L99.6,202.4 L99.8,197.8 L103.3,196.7 L104.6,194.9 L104.3,192.1 L105.2,186.5 L104.4,181.8 L100.6,173.8 L99.4,169.2 L99.7,164.7 L96.9,159.5 L96.7,157.2 L93.5,154.0 L92.6,147.8 L88.6,141.5 L87.6,138.1 L90.7,141.6 L88.3,134.2 L91.8,136.5 L94.0,139.6 L93.8,135.5 L90.3,129.2 L89.6,126.7 L88.0,124.4 L88.8,119.8 L90.2,117.8 L91.2,113.8 L90.4,109.2 L93.4,103.5 L93.9,109.5 L96.9,104.0 L102.7,101.4 L106.2,98.0 L111.7,95.1 L114.9,94.5 L116.9,95.4 L122.5,92.5 L126.9,91.6 L128.0,89.9 L129.9,89.1 L133.8,89.3 L141.3,87.0 L145.2,83.5 L147.0,79.2 L151.2,75.2 L151.6,72.0 L151.7,67.7 L156.7,60.9 L159.7,67.8 L162.8,66.2 L160.3,62.4 L162.5,58.6 L165.6,60.3 L166.5,54.3 L170.4,50.3 L172.2,47.2 L175.8,45.9 L175.9,43.6 L179.0,44.6 L179.1,42.6 L182.3,41.4 L185.7,40.3 L191.0,44.0 L195.0,48.7 L199.4,48.8 L204.0,49.5 L202.5,45.1 L205.9,38.8 L209.1,36.7 L208.0,34.7 L211.1,30.2 L215.4,27.4 L219.1,28.3 L225.1,26.8 L225.0,22.7 L219.7,20.1 L223.6,19.0 L228.3,20.9 L232.1,24.2 L238.1,26.2 L240.2,25.4 L244.6,27.9 L248.8,25.6 L251.5,26.3 L253.1,24.8 L256.4,28.7 L254.5,32.9 L251.8,36.2 L249.3,36.4 L250.1,39.6 L248.1,43.6 L245.5,47.5 L246.0,49.7 L251.7,54.1 L257.2,56.7 L260.9,59.4 L266.1,64.1 L268.1,64.1 L271.8,66.1 L272.9,68.6 L279.7,71.3 L284.5,68.6 L285.9,64.3 L287.3,60.8 L288.2,56.4 L290.4,50.1 L289.4,46.3 L289.9,44.0 L289.1,39.4 L290.0,33.4 L291.4,31.8 L290.3,29.1 L292.0,24.9 L293.3,20.6 L293.5,18.3 L296.2,15.3 L298.2,19.2 L298.7,24.2 L300.5,25.1 L300.8,28.5 L303.4,32.5 L303.9,37.0 L303.7,39.9 L306.2,46.2 L310.8,43.2 L313.2,46.5 L316.6,49.6 L315.9,53.2 L317.4,60.0 L318.5,63.9 L320.3,64.9 L322.2,71.7 L321.5,75.8 L323.9,81.2 L331.6,85.4 L336.7,89.2 L341.5,92.6 L340.5,94.5 L344.6,99.5 L347.4,108.1 L350.2,106.4 L353.2,109.8 L354.9,108.6 L356.1,117.0 L361.2,121.9 L364.5,124.9 L370.1,131.4 L372.1,137.8 L372.3,142.3 L371.8,147.2 L375.2,154.0 L374.8,161.0 L373.6,164.7 L371.6,171.8 L371.8,176.3 L370.4,182.0 L367.2,189.3 L361.9,193.2 L359.3,199.3 L356.9,203.3 L354.8,210.1 L352.0,214.1 L350.2,220.0 L349.3,225.5 L349.7,228.0 L345.6,230.8 L337.6,231.1 L331.0,234.3 L327.7,237.4 L323.4,240.8 L317.5,237.3 L313.1,235.9 L314.2,231.8 L310.3,233.3 L304.0,239.0 L297.8,236.9 L293.8,235.6 L289.7,235.1 L282.8,232.8 L278.1,227.9 L276.8,221.8 L275.2,217.8 L271.6,214.6 L264.8,213.6 L267.1,209.8 L265.4,203.9 L261.9,209.4 L255.5,210.8 L259.3,206.4 L260.4,201.8 L263.1,197.9 L262.5,192.1 L256.7,198.8 L252.3,201.5 L249.5,207.9 L243.9,204.6 L244.2,200.4 L239.7,194.6 L235.9,191.6 L237.2,189.8 L228.1,185.0 L223.1,184.8 L216.2,180.9 L203.4,181.6 L194.1,184.5 L186.0,187.1 L179.2,186.6 Z"/>
+<text class="water-label" x="22" y="196">印度洋</text>
+<text class="water-label" x="370" y="234">塔斯曼海</text>
+<text class="land-label" x="170" y="118">澳大利亚</text>
+<g><path class="airway" data-rank="10" d="M331.9,271.0 L331.4,269.2 L330.8,267.3 L330.3,265.5 L329.7,263.6 L329.1,261.8 L328.5,260.0 L327.8,258.2 L327.2,256.4 L326.5,254.7 L325.7,252.9 L325.0,251.2 L324.2,249.5 L323.4,247.8 L322.6,246.1 L321.7,244.4 L320.8,242.7 L319.9,241.1 L319.0,239.5 L318.0,237.9 L317.0,236.3 L316.0,234.7 L315.0,233.1 L313.9,231.5 L312.8,230.0"/>
+<path class="airway" data-rank="9" d="M106.4,184.4 L116.9,183.7 L127.5,183.2 L138.0,182.7 L148.6,182.4 L159.1,182.2 L169.6,182.1 L180.1,182.1 L190.7,182.3 L201.2,182.5 L211.7,182.9 L222.2,183.4 L232.7,184.0 L243.2,184.7 L253.6,185.6 L264.1,186.5 L274.6,187.6 L285.0,188.8 L295.5,190.1 L306.0,191.5 L316.4,193.0 L326.8,194.7 L337.3,196.5 L347.7,198.4 L358.1,200.4"/>
+<path class="airway" data-rank="8" d="M267.7,208.3 L271.4,207.4 L275.1,206.4 L278.9,205.6 L282.6,204.8 L286.3,204.0 L290.1,203.3 L293.8,202.7 L297.6,202.1 L301.3,201.6 L305.1,201.1 L308.9,200.7 L312.6,200.3 L316.4,200.0 L320.2,199.8 L323.9,199.6 L327.7,199.5 L331.5,199.4 L335.3,199.3 L339.1,199.4 L342.9,199.5 L346.7,199.6 L350.5,199.8 L354.3,200.1 L358.1,200.4"/>
+<path class="airway" data-rank="7" d="M312.8,230.0 L304.0,229.2 L295.2,228.3 L286.5,227.3 L277.7,226.2 L269.0,225.1 L260.3,223.8 L251.6,222.4 L242.9,220.9 L234.3,219.4 L225.6,217.7 L217.0,216.0 L208.4,214.1 L199.8,212.2 L191.2,210.1 L182.6,208.0 L174.1,205.7 L165.6,203.4 L157.1,201.0 L148.6,198.5 L140.1,195.8 L131.6,193.1 L123.2,190.3 L114.8,187.4 L106.4,184.4"/>
+<path class="airway" data-rank="6" d="M267.7,208.3 L269.7,208.8 L271.8,209.4 L273.8,209.9 L275.8,210.6 L277.7,211.2 L279.7,211.9 L281.7,212.6 L283.6,213.3 L285.5,214.1 L287.4,214.9 L289.3,215.8 L291.2,216.7 L293.1,217.6 L295.0,218.5 L296.8,219.5 L298.6,220.5 L300.5,221.6 L302.3,222.7 L304.1,223.8 L305.8,225.0 L307.6,226.2 L309.4,227.4 L311.1,228.7 L312.8,230.0"/>
+<path class="airway" data-rank="5" d="M374.8,154.4 L372.6,158.0 L370.4,161.5 L368.2,165.1 L365.9,168.5 L363.7,172.0 L361.3,175.4 L358.9,178.7 L356.5,182.1 L354.1,185.3 L351.6,188.6 L349.1,191.8 L346.5,195.0 L343.9,198.1 L341.3,201.2 L338.6,204.2 L335.9,207.3 L333.1,210.2 L330.3,213.2 L327.5,216.1 L324.7,218.9 L321.8,221.8 L318.8,224.5 L315.8,227.3 L312.8,230.0"/>
+<path class="airway" data-rank="4" d="M374.8,154.4 L374.4,156.5 L374.0,158.5 L373.6,160.6 L373.1,162.6 L372.7,164.6 L372.1,166.6 L371.6,168.6 L371.0,170.6 L370.5,172.5 L369.8,174.5 L369.2,176.4 L368.5,178.3 L367.8,180.2 L367.1,182.1 L366.3,184.0 L365.5,185.9 L364.7,187.7 L363.8,189.6 L362.9,191.4 L362.0,193.2 L361.1,195.0 L360.1,196.8 L359.1,198.6 L358.1,200.4"/>
+<path class="airway" id="path-3" d="M372.0,148.2 L370.0,152.0 L368.0,155.8 L365.9,159.6 L363.8,163.3 L361.6,167.0 L359.4,170.6 L357.2,174.2 L354.9,177.8 L352.6,181.3 L350.2,184.8 L347.8,188.3 L345.4,191.7 L342.9,195.1 L340.3,198.5 L337.8,201.8 L335.2,205.1 L332.5,208.3 L329.8,211.5 L327.1,214.7 L324.3,217.8 L321.5,220.9 L318.7,224.0 L315.8,227.0 L312.8,230.0"/>
+<path class="airway" id="path-2" d="M372.0,148.2 L371.8,150.5 L371.6,152.8 L371.3,155.1 L371.0,157.3 L370.6,159.6 L370.3,161.8 L369.9,164.1 L369.5,166.3 L369.0,168.5 L368.5,170.7 L368.0,172.9 L367.4,175.1 L366.8,177.2 L366.2,179.4 L365.5,181.5 L364.8,183.7 L364.1,185.8 L363.3,187.9 L362.6,190.0 L361.7,192.1 L360.9,194.2 L360.0,196.3 L359.1,198.3 L358.1,200.4"/>
+<path class="airway" id="path-1" d="M312.8,230.0 L314.5,228.4 L316.2,226.8 L317.9,225.2 L319.6,223.7 L321.4,222.2 L323.2,220.7 L324.9,219.3 L326.7,217.9 L328.6,216.5 L330.4,215.2 L332.3,213.9 L334.1,212.7 L336.0,211.5 L338.0,210.3 L339.9,209.1 L341.8,208.0 L343.8,206.9 L345.8,205.9 L347.8,204.9 L349.8,203.9 L351.9,203.0 L353.9,202.1 L356.0,201.2 L358.1,200.4"/>
+<use class="emphasis line-1" href="#path-1"/>
+<use class="emphasis line-2" href="#path-2"/>
+<use class="emphasis line-3" href="#path-3"/></g>
+<g><circle class="airport SYD" cx="358.1" cy="200.4" r="3.4"/><text class="iata" x="368.1" y="209.4">SYD</text><circle class="airport MEL" cx="312.8" cy="230.0" r="3.4"/><text class="iata" x="308.8" y="248.0">MEL</text><circle class="airport BNE" cx="372.0" cy="148.2" r="3.4"/><text class="iata" x="382.0" y="145.2">BNE</text><circle class="airport OOL" cx="374.8" cy="154.4" r="3.4"/><circle class="airport ADL" cx="267.7" cy="208.3" r="3.4"/><text class="iata" x="249.7" y="221.3">ADL</text><circle class="airport PER" cx="106.4" cy="184.4" r="3.4"/><text class="iata" x="71.4" y="177.4">PER</text><circle class="airport HBA" cx="331.9" cy="271.0" r="3.4"/><text class="iata" x="340.9" y="277.0">HBA</text></g></svg></div>
+<section class="readout" aria-label="航线客流统计"><fieldset><legend>选择一条航线</legend><label class="option"><input type="radio" name="route" id="route-1" aria-label="墨尔本至悉尼" aria-describedby="result-1" checked><span>MEL–SYD</span></label><label class="option"><input type="radio" name="route" id="route-2" aria-label="布里斯班至悉尼" aria-describedby="result-2"><span>BNE–SYD</span></label><label class="option"><input type="radio" name="route" id="route-3" aria-label="布里斯班至墨尔本" aria-describedby="result-3"><span>BNE–MEL</span></label></fieldset><div class="result result-1" id="result-1"><div class="pair">墨尔本 ⇄ 悉尼</div><dl><div><dt>旅客人次</dt><dd>674,539</dd></div><div><dt>客座率</dt><dd>87.7%</dd></div></dl></div><div class="result result-2" id="result-2"><div class="pair">布里斯班 ⇄ 悉尼</div><dl><div><dt>旅客人次</dt><dd>382,656</dd></div><div><dt>客座率</dt><dd>88.0%</dd></div></dl></div><div class="result result-3" id="result-3"><div class="pair">布里斯班 ⇄ 墨尔本</div><dl><div><dt>旅客人次</dt><dd>333,591</dd></div><div><dt>客座率</dt><dd>85.0%</dd></div></dl></div></section>
+</main></html>

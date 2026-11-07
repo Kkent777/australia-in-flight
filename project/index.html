@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10273f">
+  <meta name="description" content="Chenglin Li 的个人数据可视化作品。通过 8,376 条月度航线记录与 15 张图表，研究澳大利亚国内航空网络、运输恢复和区域依赖。">
+  <title>澳大利亚国内航空网络 · Chenglin Li</title>
+  <link rel="stylesheet" href="project.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳至项目内容</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="../" lang="en">Australia in Flight</a>
+      <nav aria-label="项目导航"><a href="#work">个人工作</a><a href="#analysis">分析发现</a><a class="source" href="https://github.com/Kkent777/fit2179-dv2">GitHub</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="intro wrap" aria-labelledby="project-title">
+      <div class="intro-copy">
+        <p class="byline"><span lang="en">Chenglin Li</span><span>个人数据可视化项目</span></p>
+        <h1 id="project-title">澳大利亚<br>国内航空网络</h1>
+        <p class="lead">澳大利亚最繁忙的航线集中在哪里？如果把机场客流放回当地人口规模中，哪些城市会更突出？</p>
+        <p class="intro-note">我用 2014 年 7 月至 2026 年 2 月的月度航线记录追踪客流中断与恢复，再结合机场和城市人口数据比较区域差异。</p>
+        <a class="primary" href="../">浏览完整交互图表<span aria-hidden="true">↗</span></a>
+      </div>
+      <iframe class="atlas" src="atlas.html" title="澳大利亚主要国内航线地图，可切换三条航线查看客流与客座率"></iframe>
+    </section>
+    <dl class="metrics wrap" aria-label="项目数据范围">
+      <div><dt>航线月度记录</dt><dd>8,376 <small>条</small></dd></div>
+      <div><dt>月度数据跨度</dt><dd>140 <small>个月</small></dd></div>
+      <div><dt>原站交互图表</dt><dd>15 <small>张</small></dd></div>
+    </dl>
+    <section class="work wrap" id="work" aria-labelledby="work-title">
+      <div class="section-head"><h2 id="work-title">个人工作</h2><p>从源数据整理、指标设计，到交互开发和公开部署，由我独立完成。</p></div>
+      <dl class="work-list">
+        <div><dt>数据清洗与整合</dt><dd>我将澳大利亚基础设施与交通研究经济局（BITRE）的航线与机场记录整理成可分析的明细表，再将机场年度旅客人次与澳大利亚统计局（ABS）的城市人口匹配。最终输出 4 份 CSV，并为各表记录来源、统计时段和字段口径。</dd></div>
+        <div><dt>指标与对照设计</dt><dd>我分别比较客流量、可用座位数和客座率，观察繁忙航线如何使用运力。对于区域机场，我将年度旅客人次除以对应城市人口，使不同规模城市的航空活动强度可以比较。</dd></div>
+        <div><dt>交互开发与部署</dt><dd>我用 Vega-Lite 编写地图、排名图、趋势图和热力图，用 JavaScript 加载图表，并在 Vega-Lite 中配置悬停读数。页面采用 HTML 和 CSS 响应式布局，通过章节导航连接五个专题，最终部署到 GitHub Pages。</dd></div>
+      </dl>
+    </section>
+    <section class="analysis-band" id="analysis" aria-labelledby="analysis-title">
+      <div class="wrap analysis">
+        <div class="analysis-copy"><h2 id="analysis-title">小城市的客流强度</h2>
+          <p>在截至 2025 年 11 月的一年里，凯恩斯机场的旅客人次相当于当地人口的 28.7 倍，悉尼为 8.1 倍。按人口换算后，城市对航空网络的使用强度呈现出与客流总量不同的格局。</p>
+          <p class="scope">旅客人次包括游客和往返旅客。该比值衡量机场客流相对于城市人口的规模，不能解释为当地居民的平均乘机次数。</p>
+          <a class="inline-link" href="../#part-4">查看区域依赖分析</a>
+        </div>
+        <figure class="compare">
+          <figcaption>每名居民对应的年度机场旅客人次</figcaption>
+          <div class="bar-row"><div class="bar-label"><span>凯恩斯 <small lang="en">Cairns</small></span><b>28.7</b></div><div class="track"><span class="bar cairns"></span></div></div>
+          <div class="bar-row"><div class="bar-label"><span>悉尼 <small lang="en">Sydney</small></span><b>8.1</b></div><div class="track"><span class="bar sydney"></span></div></div>
+          <div class="axis" aria-hidden="true"><span>0</span><span>15</span><span>30 人次</span></div>
+          <a class="chart-source" href="../data/airport_intensity_population.csv">数据来源 · BITRE / ABS</a>
+        </figure>
+      </div>
+    </section>
+    <section class="chapters wrap" aria-labelledby="chapter-title">
+      <div class="section-head"><h2 id="chapter-title">按主题探索</h2><p>每个主题都链接到原站的英文图表和数据说明。</p></div>
+      <ul class="chapter-list">
+        <li><a href="../#part-1"><strong>航线集中度</strong><span>比较 62 条航线的客流与座位供给</span></a></li>
+        <li><a href="../#part-2"><strong>运输中断与恢复</strong><span>主要航线客流恢复速度不同，客座率提供运力利用的参照</span></a></li>
+        <li><a href="../#part-3"><strong>机场层级</strong><span>客流曾大幅下滑，主要枢纽的排名格局总体稳定</span></a></li>
+        <li><a href="../#part-4"><strong>区域依赖</strong><span>以城市人口为参照，比较机场的客流强度</span></a></li>
+        <li><a href="../#part-5"><strong>季节性变化</strong><span>用月度热力图辨认反复出现的客流高峰</span></a></li>
+      </ul>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><span lang="en">Chenglin Li · Australia in Flight</span><a href="../#sources">数据来源与统计口径</a></div></footer>
+</body>
+</html>

@@ -4,6 +4,8 @@ An interactive data story about Australia's domestic aviation network, created b
 
 **[Explore the live visualisation](https://kkent777.github.io/fit2179-dv2/)**
 
+[中文项目介绍与分析发现](https://kkent777.github.io/fit2179-dv2/project/)
+
 The project connects routes, airports and population context to explore network concentration, changes in passenger activity, capacity utilisation and regional dependence on air travel.
 
 ## Explore
