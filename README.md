@@ -1,46 +1,13 @@
 # Australia in Flight
 
-An interactive data story about Australia's domestic aviation network, created by **Chenglin Li** with **HTML, CSS, JavaScript and Vega-Lite**.
+An interactive guide to Australian domestic aviation. Fifteen charts show which routes carry the most passengers, how traffic recovered after disruptions, and how airport activity compares with the population of nearby cities.
 
-**[Explore the live visualisation](https://kkent777.github.io/australia-in-flight/)**
-
-[中文项目介绍与分析发现](https://kkent777.github.io/australia-in-flight/project/)
-
-The project connects routes, airports and population context to explore network concentration, changes in passenger activity, capacity utilisation and regional dependence on air travel.
-
-## Explore
-
-- Route maps and ranked comparisons for major domestic connections.
-- Airport concentration and passenger/movement comparisons.
-- Monthly route patterns and the disruption and recovery visible in the supplied series.
-- Passenger-per-resident views that connect airport activity with urban population.
+[Explore the charts](https://kkent777.github.io/australia-in-flight/) · [中文导览](https://kkent777.github.io/australia-in-flight/project/)
 
 ## Run locally
 
-Serve the repository with a local static web server so the browser can load CSV and JSON files:
+Run `python3 -m http.server 8000` from the repository root and open `http://localhost:8000`. The site uses HTML, CSS, JavaScript and Vega-Lite. Chart libraries and map boundaries load from a CDN.
 
-```sh
-python3 -m http.server 8000
-```
+## Data
 
-Open `http://localhost:8000`. No build step is required. Vega libraries are loaded from a CDN, so the page needs internet access for those dependencies.
-
-## Repository
-
-| Path | Contents |
-| --- | --- |
-| `index.html` | Story structure and chart containers |
-| `styles.css` | Page layout and visual styling |
-| `main.js` | Chart loading and interaction wiring |
-| `specs/` | Vega-Lite chart specifications |
-| `data/` | Cleaned CSV extracts and provenance notes |
-
-## Data and context
-
-See [data/README_data.md](data/README_data.md) for the source workbook names, periods and transformations associated with each extract. Different charts cover different reference periods; the displayed data is a saved snapshot, not a live aviation feed.
-
-The site and underlying data are presented with their original provenance; inclusion here does not grant additional rights to third-party datasets or libraries.
-
-中文：这个作品用地图、趋势和交互图表讲述澳大利亚国内航空网络，展示数据整理、Vega-Lite 编码、页面组织与可视化叙事能力。
-
-[中文项目简介（PDF）](docs/portfolio/Project-Brief-ZH.pdf)
+The [data notes](data/README_data.md) document the BITRE aviation statistics, ABS population estimates and reference periods. The four CSV extracts are in `data/`. Chart specifications are in `specs/`. Third-party datasets and libraries retain their original rights.
