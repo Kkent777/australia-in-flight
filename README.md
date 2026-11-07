@@ -2,9 +2,9 @@
 
 An interactive data story about Australia's domestic aviation network, created by **Chenglin Li** with **HTML, CSS, JavaScript and Vega-Lite**.
 
-**[Explore the live visualisation](https://kkent777.github.io/fit2179-dv2/)**
+**[Explore the live visualisation](https://kkent777.github.io/australia-in-flight/)**
 
-[中文项目介绍与分析发现](https://kkent777.github.io/fit2179-dv2/project/)
+[中文项目介绍与分析发现](https://kkent777.github.io/australia-in-flight/project/)
 
 The project connects routes, airports and population context to explore network concentration, changes in passenger activity, capacity utilisation and regional dependence on air travel.
 
@@ -39,7 +39,7 @@ Open `http://localhost:8000`. No build step is required. Vega libraries are load
 
 See [data/README_data.md](data/README_data.md) for the source workbook names, periods and transformations associated with each extract. Different charts cover different reference periods; the displayed data is a saved snapshot, not a live aviation feed.
 
-This began as the FIT2179 Data Visualisation 2 project. The repository name is retained so the existing published URL continues to work. The site and underlying data are presented with their original provenance; inclusion here does not grant additional rights to third-party datasets or libraries.
+The site and underlying data are presented with their original provenance; inclusion here does not grant additional rights to third-party datasets or libraries.
 
 中文：这个作品用地图、趋势和交互图表讲述澳大利亚国内航空网络，展示数据整理、Vega-Lite 编码、页面组织与可视化叙事能力。
 

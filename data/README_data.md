@@ -1,6 +1,6 @@
 # Public data files for Australia in Flight
 
-These files are cleaned, public-facing extracts prepared from the real source package used for the FIT2179 DV2 page. They are not raw workbook or shapefile dumps; they group the source data into the same analytical families used by the story page and Vega-Lite specifications.
+These files are cleaned, public-facing extracts prepared from the real source package used for Australia in Flight. They are not raw workbook or shapefile dumps; they group the source data into the same analytical families used by the story page and Vega-Lite specifications.
 
 ## Files
 

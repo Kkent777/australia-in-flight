@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10273f">
   <meta name="description" content="Chenglin Li 的个人数据可视化作品。通过 8,376 条月度航线记录与 15 张图表，研究澳大利亚国内航空网络、运输恢复和区域依赖。">
-  <title>澳大利亚国内航空网络 · Chenglin Li</title>
+  <title>Australia in Flight｜澳大利亚国内航空网络研究与交互式可视化</title>
   <link rel="stylesheet" href="project.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
   <header class="mast">
     <div class="wrap mast-inner">
       <a class="brand" href="../" lang="en">Australia in Flight</a>
-      <nav aria-label="项目导航"><a href="#work">个人工作</a><a href="#analysis">分析发现</a><a class="source" href="https://github.com/Kkent777/fit2179-dv2">GitHub</a></nav>
+      <nav aria-label="项目导航"><a href="#work">个人工作</a><a href="#analysis">分析发现</a><a class="source" href="https://github.com/Kkent777/australia-in-flight">GitHub</a></nav>
     </div>
   </header>
   <main id="main">
@@ -33,11 +33,14 @@
       <div><dt>原站交互图表</dt><dd>15 <small>张</small></dd></div>
     </dl>
     <section class="work wrap" id="work" aria-labelledby="work-title">
-      <div class="section-head"><h2 id="work-title">个人工作</h2><p>从源数据整理、指标设计，到交互开发和公开部署，由我独立完成。</p></div>
+      <div class="section-head"><h2 id="work-title">个人工作</h2><p>我独立完成数据整理、指标设计、可视化编码与公开部署。分析在城市对、机场和行业三个层面展开，各层面使用对应的统计口径。</p></div>
       <dl class="work-list">
-        <div><dt>数据清洗与整合</dt><dd>我将澳大利亚基础设施与交通研究经济局（BITRE）的航线与机场记录整理成可分析的明细表，再将机场年度旅客人次与澳大利亚统计局（ABS）的城市人口匹配。最终输出 4 份 CSV，并为各表记录来源、统计时段和字段口径。</dd></div>
-        <div><dt>指标与对照设计</dt><dd>我分别比较客流量、可用座位数和客座率，观察繁忙航线如何使用运力。对于区域机场，我将年度旅客人次除以对应城市人口，使不同规模城市的航空活动强度可以比较。</dd></div>
-        <div><dt>交互开发与部署</dt><dd>我用 Vega-Lite 编写地图、排名图、趋势图和热力图，用 JavaScript 加载图表，并在 Vega-Lite 中配置悬停读数。页面采用 HTML 和 CSS 响应式布局，通过章节导航连接五个专题，最终部署到 GitHub Pages。</dd></div>
+        <div><dt>多源整合与数据粒度</dt><dd>我整合澳大利亚基础设施与交通研究经济局（BITRE）的航线与机场数据，并与澳大利亚统计局（ABS）的城市人口估计匹配。航线明细以“城市对 × 月份”为观察单位，覆盖 100 个城市对、140 个自然月，共 8,376 个唯一观测。交付的 4 份 CSV 分别保存月度航线序列、单月航线截面、机场运营数据及机场与城市人口匹配结果，随表记录来源、统计期间和指标定义。</dd></div>
+        <div><dt>航线集中度与运力利用</dt><dd>我按旅客人次对航线排序，用集中度指标 CR3 和 CR10 衡量前三条、前十条航线占样本总客流的份额。2025 年 12 月，62 条样本航线合计运送约 474.49 万人次。连接悉尼、墨尔本和布里斯班的三条航线占 29.3%，前十条合计占 57.6%。其中墨尔本—悉尼航线运送 674,539 人次，客座率为 87.7%。把客流与可用座位并列，可以同时观察航线规模和运力利用水平。</dd></div>
+        <div><dt>运输冲击与恢复轨迹</dt><dd>我以行业月度客流描绘整体冲击，用上年同月作基准，并用小多图比较主要航线的恢复节奏。2020 年 4 月行业客流降至约 14.59 万人次，同比下降 97.2%。到 2025 年 12 月，行业客流较 2019 年同月高约 0.8%。将总量趋势与航线客流、客座率对照，可以分开观察客流回升、座位使用状况和不同航线的恢复差异。</dd></div>
+        <div><dt>机场层级与区域航空活动</dt><dd>我用排名变化图追踪主要枢纽的相对位置，结合旅客吞吐量、飞机起降架次及每架次旅客人次比较机场运营特征。再将机场年度旅客人次与城市人口匹配，把比较基准从绝对规模扩展到人口标准化的航空活动强度。具体对照见下方凯恩斯与悉尼的比较。</dd></div>
+        <div><dt>季节性与月度需求差异</dt><dd>我用日历月份作为横轴、机场作为纵轴，以颜色深浅表示旅客人次，比较五座主要机场在 2025 年 1 至 11 月的客流变化。五座机场在这段时间内的最低值均出现在 2 月。由于各月天数不同，且热力图覆盖单一年度的一部分，我将这一结果解释为观察期内的月度现象，多年变化则通过长期趋势图比较。</dd></div>
+        <div><dt>可视化工程与静态部署</dt><dd>我采用 Vega-Lite 的声明式语法编写 15 张图表，按分析任务选用地理连线、趋势小多图、排名变化图、散点图和热力图。图表以独立 JSON 规格保存，由 JavaScript 加载并渲染。前端使用 HTML 与 CSS 实现响应式布局，通过悬停提示、章节导航、图表注释和来源链接，把每项发现对应到具体的比较对象、数据期间与计量单位。最终将完整作品发布到 GitHub Pages。</dd></div>
       </dl>
     </section>
     <section class="analysis-band" id="analysis" aria-labelledby="analysis-title">
@@ -63,7 +66,7 @@
         <li><a href="../#part-2"><strong>运输中断与恢复</strong><span>主要航线客流恢复速度不同，客座率提供运力利用的参照</span></a></li>
         <li><a href="../#part-3"><strong>机场层级</strong><span>客流曾大幅下滑，主要枢纽的排名格局总体稳定</span></a></li>
         <li><a href="../#part-4"><strong>区域依赖</strong><span>以城市人口为参照，比较机场的客流强度</span></a></li>
-        <li><a href="../#part-5"><strong>季节性变化</strong><span>用月度热力图辨认反复出现的客流高峰</span></a></li>
+        <li><a href="../#part-5"><strong>季节性变化</strong><span>比较五座主要机场在 2025 年 1 至 11 月的客流起伏</span></a></li>
       </ul>
     </section>
   </main>
